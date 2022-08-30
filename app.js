@@ -18,8 +18,22 @@ app.get("/", function(req, res){
   
 })
 
-app.get("/posts/:text", function(req, res){
-  console.log(req.params.text)
+app.get("/posts/:postName", function(req, res){
+  let requestedTitle = req.params.postName;
+
+  posts.forEach(function(post){
+    if (requestedTitle === post.title){
+      console.log("Match found")
+    }
+  })
+  // for(let i=0; i< posts.length; i++){
+  //   if(requestedTitle === posts[i].title){
+  //     console.log("Match found");
+  //   } else {
+  //     console.log( "No matches this time");
+  //   }
+  // }
+  
   res.render("home", {posts : posts})
   
 })
