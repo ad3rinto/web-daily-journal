@@ -20,11 +20,11 @@ app.get("/", function(req, res){
 })
 
 app.get("/posts/:postName", function(req, res){
-  let requestedTitle = req.params.postName;
+  let requestedTitle = _.lowerCase(req.params.postName);
 
   posts.forEach(function(post){
-    if (_.lowerCase(requestedTitle) === _.lowerCase(post.title)){
-      console.log("Match found")
+    if (requestedTitle === _.lowerCase(post.title)){
+      res.render("post",{post:post})
     }
   })
   // for(let i=0; i< posts.length; i++){
@@ -35,7 +35,7 @@ app.get("/posts/:postName", function(req, res){
   //   }
   // }
   
-  res.render("home", {posts : posts})
+  
   
 })
 
