@@ -19,6 +19,8 @@ app.get("/", function(req, res){
   
 })
 
+
+
 app.get("/posts/:postName", function(req, res){
   let requestedTitle = _.lowerCase(req.params.postName);
 
