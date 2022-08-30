@@ -18,6 +18,13 @@ app.get("/", function(req, res){
   
 })
 
+app.get("/posts/:text", function(req, res){
+  console.log(req.params.text)
+  res.render("home", {posts : posts})
+  
+})
+
+
 app.get("/about", function(req, res){
   res.render("about", {aboutContent: aboutContent})
 })
